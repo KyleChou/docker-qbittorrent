@@ -1,3 +1,12 @@
+## 修改内容
+由于电信不允许10000以内端口对外转发，故默认对外端口 6881 改为 21410，web 端口 8080 改为 18080
+
+## unraid 启动参考
+```shell
+/usr/local/emhttp/plugins/dynamix.docker.manager/scripts/docker run -d --name='qbittorrent' --net='bridge' -e TZ="Asia/Shanghai" -e HOST_OS="Unraid" -e 'PUID'='99' -e 'PGID'='100' -p '21410:21410/tcp' -p '21410:21410/udp' -p '18080:18080/tcp' -v '/mnt/user/appdata/qbittorrent/downloads/':'/downloads':'rw' -v '/mnt/user/appdata/qbittorrent':'/config':'rw' 'qbittorrent'
+```
+
+
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
 
 [![Blog](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Blog)](https://blog.linuxserver.io "all the things you can do with our containers including How-To guides, opinions and much more!")
